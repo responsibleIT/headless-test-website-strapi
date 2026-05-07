@@ -1,0 +1,286 @@
+@use 'normalize.css/normalize.css'
+
+*, *:before, *:after
+  box-sizing: border-box
+
+body
+  font-family: system-ui, sans-serif
+  background: #f4f5f7
+  color: #1a1a2e
+  margin: 0
+  padding: 2rem
+
+// ── Pages layout ─────────────────────────────────────────
+
+.pages-container
+  max-width: 1200px
+  margin: 0 auto
+
+.pages-heading
+  font-size: 1.4rem
+  font-weight: 600
+  margin-bottom: 0.5rem
+  color: #333
+
+.pages-pagination
+  font-size: 0.8rem
+  color: #888
+  margin-bottom: 1.5rem
+
+// ── Grid ─────────────────────────────────────────────────
+
+.cards-grid
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr))
+  gap: 1.25rem
+
+// ── Card ─────────────────────────────────────────────────
+
+.card
+  background: #fff
+  border-radius: 10px
+  padding: 1.25rem 1.5rem
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08)
+  border: 1px solid #e8e8e8
+  display: flex
+  flex-direction: column
+  gap: 0.6rem
+  transition: box-shadow 0.2s
+  cursor: pointer
+
+  &:hover
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12)
+
+  &--open
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12)
+    border-color: #c5cff7
+
+.card-header
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+.card-header-right
+  display: flex
+  align-items: center
+  gap: 0.4rem
+
+.card-chevron
+  font-size: 0.65rem
+  color: #aaa
+
+.card-title
+  font-size: 1.05rem
+  font-weight: 600
+  color: #1a1a2e
+
+.card-id
+  font-size: 0.72rem
+  background: #f0f0f5
+  color: #666
+  padding: 2px 7px
+  border-radius: 99px
+
+.card-meta
+  font-size: 0.85rem
+  color: #555
+  line-height: 1.4
+
+.card-badges
+  display: flex
+  gap: 0.4rem
+  flex-wrap: wrap
+
+.card-divider
+  border: none
+  border-top: 1px solid #f0f0f0
+  margin: 0.2rem 0
+
+.card-footer
+  display: flex
+  flex-direction: column
+  gap: 0.3rem
+  font-size: 0.75rem
+  color: #999
+
+  strong
+    color: #777
+
+// ── Badges ───────────────────────────────────────────────
+
+.badge
+  display: inline-flex
+  align-items: center
+  font-size: 0.72rem
+  padding: 2px 8px
+  border-radius: 99px
+  font-weight: 500
+
+.badge-published
+  background: #e6f9f0
+  color: #1a9e5c
+
+.badge-sections
+  background: #eef2ff
+  color: #4f6ef7
+
+// ── Misc ─────────────────────────────────────────────────
+
+.slug-missing
+  font-style: italic
+  color: #bbb
+
+// ── Sections expand ──────────────────────────────────────
+
+.card-sections
+  display: flex
+  flex-direction: column
+  gap: 0.75rem
+
+.sections-heading
+  font-size: 0.8rem
+  font-weight: 600
+  color: #888
+  text-transform: uppercase
+  letter-spacing: 0.05em
+  margin: 0
+
+.no-sections
+  font-size: 0.8rem
+  color: #bbb
+  font-style: italic
+
+.sections-list
+  display: flex
+  flex-direction: column
+  gap: 0.6rem
+
+.section-card
+  background: #f8f8fb
+  border: 1px solid #ececf3
+  border-radius: 8px
+  padding: 0.75rem 1rem
+
+.section-card-header
+  display: flex
+  align-items: center
+  justify-content: space-between
+  margin-bottom: 0.5rem
+
+.section-type
+  font-size: 0.72rem
+  font-weight: 600
+  color: #4f6ef7
+  background: #eef2ff
+  padding: 2px 8px
+  border-radius: 99px
+
+.section-data
+  font-size: 0.72rem
+  background: #fff
+  border: 1px solid #e8e8e8
+  border-radius: 6px
+  padding: 0.6rem
+  overflow-x: auto
+  color: #444
+  line-height: 1.6
+  margin: 0
+
+.section-image-wrapper
+  border-radius: 6px
+  overflow: hidden
+  margin-top: 0.5rem
+
+.section-image
+  width: 100%
+  height: auto
+  display: block
+
+.no-image
+  font-size: 0.75rem
+  color: #bbb
+  font-style: italic
+
+// ── Section fields ────────────────────────────────────────
+
+.section-fields
+  display: flex
+  flex-direction: column
+  gap: 0.35rem
+
+.section-field
+  display: grid
+  grid-template-columns: 7rem 1fr
+  gap: 0.5rem
+  font-size: 0.8rem
+  align-items: baseline
+
+.section-field-key
+  font-weight: 600
+  color: #888
+  text-transform: capitalize
+
+.section-field-value
+  color: #333
+  line-height: 1.5
+  word-break: break-word
+
+// ── Section buttons ───────────────────────────────────────
+
+.section-buttons
+  display: flex
+  flex-wrap: wrap
+  gap: 0.5rem
+  margin-top: 0.25rem
+
+.section-btn
+  display: inline-flex
+  align-items: center
+  padding: 0.4rem 1rem
+  border-radius: 99px
+  font-size: 0.8rem
+  font-weight: 600
+  text-decoration: none
+  transition: background 0.15s, color 0.15s
+
+.section-btn--default,
+.section-btn--primary
+  background: #4f6ef7
+  color: #fff
+
+  &:hover
+    background: #3a57d4
+
+.section-btn--secondary
+  background: #eef2ff
+  color: #4f6ef7
+  border: 1px solid #c5cff7
+
+  &:hover
+    background: #dde5ff
+
+.section-btn--outline
+  background: transparent
+  color: #4f6ef7
+  border: 1px solid #4f6ef7
+
+  &:hover
+    background: #eef2ff
+    
+// ── Card video ────────────────────────────────────────────
+
+.card-video-wrapper
+  border-radius: 8px
+  overflow: hidden
+  margin: -1.25rem -1.5rem 0
+  background: #000
+
+.card-video
+  width: 100%
+  max-height: 200px
+  display: block
+  object-fit: cover
+
+.badge-video
+  background: #fff3e0
+  color: #e07b00
