@@ -1,6 +1,6 @@
 <script lang="ts">
   import SectionCard from '$lib/components/SectionCard/SectionCard.svelte';
-  import { PUBLIC_STRAPI_API_URL } from '$env/static/public';
+import env from '$env/static/public';
   import s from './PageCard.module.css';
 
   interface Props {
@@ -31,7 +31,7 @@
   {#if data.video?.url}
     <div class={s.cardVideoWrapper} onclick={(e) => e.stopPropagation()}>
       <video
-        src={PUBLIC_STRAPI_API_URL + data.video.url}
+        src={env.PUBLIC_STRAPI_API_URL + data.video.url}
         controls
         class={s.cardVideo}
       >

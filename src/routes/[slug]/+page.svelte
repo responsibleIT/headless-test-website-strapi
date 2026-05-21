@@ -1,7 +1,7 @@
 <!-- src/routes/[slug]/+page.svelte -->
 <script lang="ts">
   import SectionCard from '$lib/components/SectionCard/SectionCard.svelte';
-  import { PUBLIC_STRAPI_API_URL } from '$env/static/public';
+  import env from '$env/static/public';
 
   interface PageData {
     id: number;
@@ -77,7 +77,7 @@
   {#if page.video?.url}
     <section aria-label="Page video" style="border-radius: 8px; overflow: hidden; border: 1px solid #eee;">
       <video
-        src={PUBLIC_STRAPI_API_URL + page.video.url}
+        src={env.PUBLIC_STRAPI_API_URL + page.video.url}
         controls
         style="width: 100%; max-height: 480px; display: block; background: #000;"
       >
