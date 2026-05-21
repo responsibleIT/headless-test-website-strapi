@@ -1,0 +1,152 @@
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.card.open {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  border-color: #c5cff7;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.chevron {
+  font-size: 0.65rem;
+  color: #aaa;
+}
+
+.title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.id {
+  font-size: 0.72rem;
+  background: #f0f0f5;
+  color: #666;
+  padding: 2px 7px;
+  border-radius: 99px;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.badges {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-weight: 500;
+}
+
+.badgePublished {
+  background: #e6f9f0;
+  color: #1a9e5c;
+}
+
+.badgeSections {
+  background: #eef2ff;
+  color: #4f6ef7;
+}
+
+.badgeVideo {
+  background: #fff3e0;
+  color: #e07b00;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #f0f0f0;
+  margin: 0.2rem 0;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.footer strong {
+  color: #777;
+}
+
+.slugMissing {
+  font-style: italic;
+  color: #bbb;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sectionsHeading {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.noSections {
+  font-size: 0.8rem;
+  color: #bbb;
+  font-style: italic;
+}
+
+.sectionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.videoWrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  margin: -1.25rem -1.5rem 0;
+  background: #000;
+}
+
+.video {
+  width: 100%;
+  max-height: 200px;
+  display: block;
+  object-fit: cover;
+}

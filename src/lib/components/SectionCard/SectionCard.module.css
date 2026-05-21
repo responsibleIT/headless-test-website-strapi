@@ -1,0 +1,117 @@
+.card {
+  background: #f8f8fb;
+  border: 1px solid #ececf3;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.type {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #4f6ef7;
+  background: #eef2ff;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+.id {
+  font-size: 0.72rem;
+  background: #f0f0f5;
+  color: #666;
+  padding: 2px 7px;
+  border-radius: 99px;
+}
+
+.imageWrapper {
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  align-items: baseline;
+}
+
+.fieldKey {
+  font-weight: 600;
+  color: #888;
+  text-transform: capitalize;
+}
+
+.fieldValue {
+  color: #333;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btnDefault,
+.btnPrimary {
+  background: #4f6ef7;
+  color: #fff;
+}
+
+.btnDefault:hover,
+.btnPrimary:hover {
+  background: #3a57d4;
+}
+
+.btnSecondary {
+  background: #eef2ff;
+  color: #4f6ef7;
+  border: 1px solid #c5cff7;
+}
+
+.btnSecondary:hover {
+  background: #dde5ff;
+}
+
+.btnOutline {
+  background: transparent;
+  color: #4f6ef7;
+  border: 1px solid #4f6ef7;
+}
+
+.btnOutline:hover {
+  background: #eef2ff;
+}
