@@ -1,6 +1,6 @@
 <script lang="ts">
   import s from './SectionCard.module.css';
-  import env from '$env/static/public';
+  import { PUBLIC_STRAPI_API_URL } from '$env/static/public';
 
   const IGNORED_KEYS = ['id', '__component', 'type', 'image', 'buttons'];
 
@@ -36,7 +36,7 @@
   {#if data.image?.url}
     <div class={s.imageWrapper}>
       <img
-        src={env.PUBLIC_STRAPI_API_URL + data.image.url}
+        src={PUBLIC_STRAPI_API_URL + data.image.url}
         alt={data.image.alternativeText ?? data.heading ?? 'Section image'}
         width={data.image.width ?? 600}
         height={data.image.height ?? 400}
