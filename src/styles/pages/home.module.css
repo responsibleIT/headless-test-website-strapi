@@ -6,7 +6,7 @@ body {
     inset: 50%;
     translate: -50% -50%;
     z-index: 11;
-    background: url('src/lib/assets/res-it-logo.jpg');
+    background: url('./assets/res-it-logo.jpg');
     height: 200px;
     aspect-ratio: 1;
     background-size: cover;
