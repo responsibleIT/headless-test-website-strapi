@@ -27,19 +27,13 @@ export const load: PageServerLoad = async () => {
   const params: Record<string, string> = {};
 
   const buildUrl = (base: string) => {
-    const url = new URL(`${base}${path}`);
+    const cleanBase = base.replace(/\/$/, ''); // Remove trailing slash
+    const url = new URL(`${cleanBase}${path}`);
     Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
     return url;
   };
 
-  let json;
-
-  try {
-    json = await fetchFromApi(buildUrl(PUBLIC_STRAPI_API_URL), API_TOKEN);
-  } catch {
-    console.warn('Primary API unreachable, falling back to local');
-    json = await fetchFromApi(buildUrl(PUBLIC_LOCAL_API_URL), LOCAL_API_TOKEN);
-  }
+  const json = await fetchFromApi(buildUrl(PUBLIC_STRAPI_API_URL), API_TOKEN);
 
   return {
     studentPages: json?.data ?? [],

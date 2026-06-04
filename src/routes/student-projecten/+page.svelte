@@ -11,7 +11,7 @@
   <ul>
     {#each data.studentPages as project (project.id)}
       <li>
-        <a href="/student-detail/{project.Slug}">
+        <a href="/student-projecten/{project.Slug}">
           {project.ProjectTitel}
         </a>
       </li>
