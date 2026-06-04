@@ -1,0 +1,36 @@
+body {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 50%;
+    translate: -50% -50%;
+    z-index: 11;
+    background: url('src/lib/assets/res-it-logo.jpg');
+    height: 200px;
+    aspect-ratio: 1;
+    background-size: cover;
+    background-position: center;
+    animation: float 3s linear(0, 0.147 4.5%, 0.283 9.3%, 0.409 14.4%, 0.529 20%, 0.644 26.2%, 0.699 29.5%, 0.75 32.8%, 0.797 36.1%, 0.839 39.3%, 0.877 42.5%, 0.911 45.7%, 0.939 48.7%, 0.963 51.7%, 0.984 54.7%, 1 57.7%, 0.988 60.8%, 0.979 63.8%, 0.974 67%, 0.973 70.3%, 0.976 75.9%, 0.996 90.4%, 0.999 94.9%, 1) infinite;
+  }
+  &::after{
+    content: "";
+    background-color: #2F2089;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes float {
+    50% {
+        translate: -50% -40%;
+    }
+    100% {
+        translate: -50% -50%;
+
+    }
+}
