@@ -1,6 +1,8 @@
 // src/routes/[slug]/+page.server.ts
 import type { PageServerLoad } from './$types';
-import { STRAPI_API_URL, API_TOKEN } from '$env/static/private';
+import { API_TOKEN } from '$env/static/private';
+import { PUBLIC_STRAPI_API_URL } from '$env/static/public';
+
 import { error } from '@sveltejs/kit';
 
 type StrapiPage = {
@@ -20,7 +22,7 @@ export const load: PageServerLoad = async ({ fetch, params }) => {
   const { slug } = params;
 
   const url =
-    `${STRAPI_API_URL}/api/pages` +
+    `${PUBLIC_STRAPI_API_URL}/api/student-detail-pages` +
     `?filters[slug][$eq]=${encodeURIComponent(slug)}` +
     `&populate=*`; // 👈 valid in Strapi v5
 
