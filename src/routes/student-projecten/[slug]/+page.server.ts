@@ -88,10 +88,8 @@ async function fetchFromApi(url: URL, token: string) {
 export const load: PageServerLoad = async ({ params }) => {
   const { slug } = params;
 
-  const path = '/api/student-detail-pages';
-  const params_obj: Record<string, string> = {
-    'filters[slug][$eq]': slug,
-  };
+  const path = `/api/student-detail-page/${slug}`;
+  const params_obj: Record<string, string> = {};
 
   const buildUrl = (base: string) => {
     const cleanBase = base.replace(/\/$/, ''); // Remove trailing slash
@@ -102,7 +100,7 @@ export const load: PageServerLoad = async ({ params }) => {
 
   const json = await fetchFromApi(buildUrl(PUBLIC_STRAPI_API_URL), API_TOKEN);
 
-  const item: StudentDetailPage | undefined = json?.data?.[0];
+  const item: StudentDetailPage | undefined = json?.data;
 
   if (!item) {
     throw error(404, 'Student detail page not found');
