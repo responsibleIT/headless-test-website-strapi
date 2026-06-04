@@ -90,8 +90,7 @@ export const load: PageServerLoad = async ({ params }) => {
 
   const path = '/api/student-detail-pages';
   const params_obj: Record<string, string> = {
-    'filters[Slug][$eq]': slug,
-    'populate': '*',
+    'Slug': `"${slug}"`,
   };
 
   const buildUrl = (base: string) => {
