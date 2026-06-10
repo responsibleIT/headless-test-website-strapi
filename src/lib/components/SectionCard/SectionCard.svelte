@@ -1,15 +1,10 @@
-<script lang="ts">
+<script>
   import s from './SectionCard.module.css';
-  import { PUBLIC_STRAPI_API_URL, PUBLIC_LOCAL_API_URL } from '$env/static/public';
+  import { PUBLIC_STRAPI_API_URL } from '$env/static/public';
 
   const IGNORED_KEYS = ['id', '__component', 'type', 'image', 'buttons'];
 
-  interface Props {
-    data: Record<string, any>;
-    index: number;
-  }
-
-  let { data, index }: Props = $props();
+  let { data, index } = $props();
 
   const filteredFields = $derived(
     Object.entries(data).filter(

@@ -1,28 +1,26 @@
-<script lang="ts">
-  import type { PageData } from './$types';
-
-  let { data }: { data: PageData } = $props();
-  const { studentPage } = data;
+<script>
+  let { data } = $props();
+  const studentPage = $derived(data.studentPage);
 </script>
 
 <main>
-  {#if studentPage.ProjectTitel}
-    <h1>{studentPage.ProjectTitel}</h1>
+  {#if studentPage?.ProjectTitel}
+    <h1>{studentPage?.ProjectTitel}</h1>
   {/if}
 
-  {#if studentPage.ProjectBeschrijving}
+  {#if studentPage?.ProjectBeschrijving}
     <section>
       <h2>Description</h2>
-      <p>{studentPage.ProjectBeschrijving}</p>
+      <p>{studentPage?.ProjectBeschrijving}</p>
     </section>
   {/if}
 
-  {#if studentPage.VideoEmbed}
+  {#if studentPage?.VideoEmbed}
     <section>
       <h2>Video</h2>
       <div class="video-embed">
         <iframe
-          src={studentPage.VideoEmbed}
+          src={studentPage?.VideoEmbed}
           title="Project video"
           allowfullscreen
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -32,68 +30,68 @@
   {/if}
 
   <section class="project-info">
-    {#if studentPage.AantalStudenten}
+    {#if studentPage?.AantalStudenten}
       <div>
-        <strong>Number of Students:</strong> {studentPage.AantalStudenten}
+        <strong>Number of Students:</strong> {studentPage?.AantalStudenten}
       </div>
     {/if}
 
-    {#if studentPage.SchoolJaar && studentPage.SchoolJaar.length > 0}
+    {#if studentPage?.SchoolJaar && studentPage?.SchoolJaar.length > 0}
       <div>
-        <strong>School Year:</strong> {studentPage.SchoolJaar.join(', ')}
+        <strong>School Year:</strong> {studentPage?.SchoolJaar.join(', ')}
       </div>
     {/if}
 
-    {#if studentPage.Niveau && studentPage.Niveau.length > 0}
+    {#if studentPage?.Niveau && studentPage?.Niveau.length > 0}
       <div>
-        <strong>Level:</strong> {studentPage.Niveau.join(', ')}
+        <strong>Level:</strong> {studentPage?.Niveau.join(', ')}
       </div>
     {/if}
 
-    {#if studentPage.Doorlooptijd}
+    {#if studentPage?.Doorlooptijd}
       <div>
-        <strong>Duration:</strong> {studentPage.Doorlooptijd}
+        <strong>Duration:</strong> {studentPage?.Doorlooptijd}
       </div>
     {/if}
 
-    {#if studentPage.LesJaar}
+    {#if studentPage?.LesJaar}
       <div>
-        <strong>Academic Year:</strong> {studentPage.LesJaar}
+        <strong>Academic Year:</strong> {studentPage?.LesJaar}
       </div>
     {/if}
   </section>
 
-  {#if studentPage.Onderwijseenheid}
+  {#if studentPage?.Onderwijseenheid}
     <section>
       <h2>Educational Unit</h2>
       <p>
-        {#if studentPage.Onderwijseenheid.URL}
-          <a href={studentPage.Onderwijseenheid.URL} target="_blank" rel="noopener noreferrer">
-            {studentPage.Onderwijseenheid.label}
+        {#if studentPage?.Onderwijseenheid.URL}
+          <a href={studentPage?.Onderwijseenheid.URL} target="_blank" rel="noopener noreferrer">
+            {studentPage?.Onderwijseenheid.label}
           </a>
         {:else}
-          {studentPage.Onderwijseenheid.label}
+          {studentPage?.Onderwijseenheid.label}
         {/if}
       </p>
     </section>
   {/if}
 
-  {#if studentPage.Foto}
+  {#if studentPage?.Foto}
     <section>
       <h2>Project Image</h2>
       <img
-        src={studentPage.Foto.url}
-        alt={studentPage.Foto.alternativeText || studentPage.ProjectTitel}
-        title={studentPage.Foto.caption}
+        src={studentPage?.Foto.url}
+        alt={studentPage?.Foto.alternativeText || studentPage?.ProjectTitel}
+        title={studentPage?.Foto.caption}
       />
     </section>
   {/if}
 
-  {#if studentPage.Audio && studentPage.Audio.length > 0}
+  {#if studentPage?.Audio && studentPage?.Audio.length > 0}
     <section>
       <h2>Audio</h2>
       <div class="audio-list">
-        {#each studentPage.Audio as audio (audio.id)}
+        {#each studentPage?.Audio as audio (audio.id)}
           <div class="audio-item">
             <p>{audio.alternativeText || audio.name}</p>
             <audio controls>
@@ -106,11 +104,11 @@
     </section>
   {/if}
 
-  {#if studentPage.Bronnen && studentPage.Bronnen.length > 0}
+  {#if studentPage?.Bronnen && studentPage?.Bronnen.length > 0}
     <section>
       <h2>Sources & Resources</h2>
       <ul>
-        {#each studentPage.Bronnen as bron (bron.id)}
+        {#each studentPage?.Bronnen as bron (bron.id)}
           <li>
             <a href={bron.Bron} target="_blank" rel="noopener noreferrer">
               {bron.Bron}
@@ -121,11 +119,11 @@
     </section>
   {/if}
 
-  {#if studentPage.Partners && studentPage.Partners.length > 0}
+  {#if studentPage?.Partners && studentPage?.Partners.length > 0}
     <section>
       <h2>Partners</h2>
       <div class="partners-list">
-        {#each studentPage.Partners as partner (partner.id)}
+        {#each studentPage?.Partners as partner (partner.id)}
           <div class="partner-item">
             {#if partner.Logo}
               <img src={partner.Logo.url} alt={partner.PartnerNaam} />

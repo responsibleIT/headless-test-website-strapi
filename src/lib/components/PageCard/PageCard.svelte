@@ -1,16 +1,12 @@
-<script lang="ts">
+<script>
   import SectionCard from '$lib/components/SectionCard/SectionCard.svelte';
   import { PUBLIC_STRAPI_API_URL } from '$env/static/public';
   import s from './PageCard.module.css';
 
-  interface Props {
-    data: Record<string, any>;
-  }
-
-  let { data }: Props = $props();
+  let { data } = $props();
   let open = $state(false);
 
-  function formatDate(dateStr: string) {
+  function formatDate(dateStr) {
     return new Date(dateStr).toLocaleString('en-GB', {
       day: '2-digit',
       month: 'short',
