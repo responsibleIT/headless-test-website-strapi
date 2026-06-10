@@ -5,8 +5,32 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="text-scale" content="scale" />
 		%sveltekit.head%
+		<script>
+			// Restore the "revealed" body class before paint so the
+			// body::before / body::after overlays don't flash on revisit.
+			// Paired with the Enter+Enter+Backspace shortcut in +layout.svelte.
+			(function () {
+				try {
+					var expiresAt = Number(localStorage.getItem('body-revealed-until'));
+					if (expiresAt && expiresAt > Date.now()) {
+						document.documentElement.dataset.revealed = '1';
+					} else if (expiresAt) {
+						localStorage.removeItem('body-revealed-until');
+					}
+				} catch (_) {
+					/* localStorage unavailable — ignore */
+				}
+			})();
+		</script>
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
+		<script>
+			// Apply the class to <body> as soon as it exists (the inline head
+			// script can't touch <body> yet because it hasn't been parsed).
+			if (document.documentElement.dataset.revealed === '1') {
+				document.body.classList.add('revealed');
+			}
+		</script>
 	</body>
 </html>

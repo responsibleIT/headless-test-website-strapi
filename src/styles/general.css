@@ -4,6 +4,13 @@
   margin: 0;
 }
 
+/* Triggered by the Enter + Enter + Backspace shortcut (see +layout.svelte) */
+body.revealed::before,
+body.revealed::after {
+  content: none !important;
+  display: none !important;
+}
+
 body {
   font-family: system-ui, sans-serif;
   background: #f4f5f7;

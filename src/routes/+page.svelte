@@ -1,6 +1,7 @@
 <script>
   import SectionCard from '$lib/components/SectionCard/SectionCard.svelte';
   import { PUBLIC_STRAPI_API_URL } from '$env/static/public';
+  import '../styles/pages/home.module.css'
 
   let { data } = $props();
   const homePage = $derived(data.homePage);
