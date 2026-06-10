@@ -7,7 +7,7 @@
 
 	// Hidden shortcut: press Enter, then Enter, then Backspace to strip the
 	// decorative body::before / body::after overlays defined in
-	// styles/pages/home.module.css. CSS does the actual hiding via
+	// styles/pages/home.css. CSS does the actual hiding via
 	// `body.revealed::before/after`; we just toggle the class here.
 	// The "revealed" state is persisted in localStorage for REVEAL_TTL_MS so
 	// the gesture only needs to be performed once per browser per period.
