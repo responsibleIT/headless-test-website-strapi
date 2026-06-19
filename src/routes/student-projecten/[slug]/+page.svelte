@@ -1,6 +1,11 @@
 <script>
+ import { PUBLIC_STRAPI_API_URL } from '$env/static/public';
+
   let { data } = $props();
   const studentPage = $derived(data.studentPage);
+
+  // Ensure we don't end up with "//uploads"
+  const STRAPI_BASE = PUBLIC_STRAPI_API_URL.replace(/\/$/, '');
 </script>
 
 <main>
@@ -80,23 +85,22 @@
     <section>
       <h2>Project Image</h2>
       <img
-        src={studentPage?.Foto.url}
-        alt={studentPage?.Foto.alternativeText || studentPage?.ProjectTitel}
-        title={studentPage?.Foto.caption}
+        src={STRAPI_BASE + studentPage.Foto.url}
+        alt={studentPage.Foto.alternativeText || studentPage.ProjectTitel}
+        title={studentPage.Foto.caption}
       />
     </section>
   {/if}
 
-  {#if studentPage?.Audio && studentPage?.Audio.length > 0}
+  {#if studentPage?.Audio && studentPage.Audio.length > 0}
     <section>
       <h2>Audio</h2>
       <div class="audio-list">
-        {#each studentPage?.Audio as audio (audio.id)}
+        {#each studentPage.Audio as audio (audio.id)}
           <div class="audio-item">
             <p>{audio.alternativeText || audio.name}</p>
             <audio controls>
-              <source src={audio.url} />
-              Your browser does not support the audio element.
+              <source src={STRAPI_BASE + audio.url} />
             </audio>
           </div>
         {/each}
@@ -119,14 +123,14 @@
     </section>
   {/if}
 
-  {#if studentPage?.Partners && studentPage?.Partners.length > 0}
+  {#if studentPage?.Partners && studentPage.Partners.length > 0}
     <section>
       <h2>Partners</h2>
       <div class="partners-list">
-        {#each studentPage?.Partners as partner (partner.id)}
+        {#each studentPage.Partners as partner (partner.id)}
           <div class="partner-item">
             {#if partner.Logo}
-              <img src={partner.Logo.url} alt={partner.PartnerNaam} />
+              <img src={STRAPI_BASE + partner.Logo.url} alt={partner.PartnerNaam} />
             {/if}
             <h3>{partner.PartnerNaam}</h3>
             {#if partner.PartnerBeschrijving}
