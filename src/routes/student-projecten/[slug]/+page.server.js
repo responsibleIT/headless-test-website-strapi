@@ -55,6 +55,7 @@ export async function load({ params }) {
 
 		const studentPage = {
 			id: item.id,
+			P5: item.P5 ?? null,
 			documentId: item.documentId,
 			LesJaar: item.LesJaar,
 			ProjectTitel: item.ProjectTitel,
@@ -88,6 +89,7 @@ export async function load({ params }) {
 
 		const studentPage = {
 			id: item.id,
+			P5: item.P5 ?? null,
 			documentId: item.documentId,
 			LesJaar: item.LesJaar,
 			ProjectTitel: item.ProjectTitel,

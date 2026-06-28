@@ -1,8 +1,11 @@
 <script>
  import { PUBLIC_STRAPI_API_URL } from '$env/static/public';
+ import P5Iframe from '$lib/components/P5Sketch.svelte';
+
 
   let { data } = $props();
   const studentPage = $derived(data.studentPage);
+  console.log('studentPage data:', studentPage);
 
   // Ensure we don't end up with "//uploads"
   const STRAPI_BASE = PUBLIC_STRAPI_API_URL.replace(/\/$/, '');
@@ -11,6 +14,14 @@
 <main>
   {#if studentPage?.ProjectTitel}
     <h1>{studentPage?.ProjectTitel}</h1>
+  {/if}
+
+  {#if studentPage?.P5}
+    <section>
+      <h2>P5 Sketch</h2>
+
+      <P5Iframe code={studentPage.P5} />
+    </section>
   {/if}
 
   {#if studentPage?.ProjectBeschrijving}
